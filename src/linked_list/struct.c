@@ -4,6 +4,7 @@
 
 List* listInit()
 {
+  //List* Lista = calloc(1, sizeof(List));
   List* Lista = mmap(NULL, sizeof(List), PROT_READ | PROT_WRITE, 
                     MAP_SHARED | MAP_ANONYMOUS, -1, 0);
   Lista -> head = NULL;

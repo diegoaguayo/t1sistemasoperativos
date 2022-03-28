@@ -7,10 +7,11 @@
 #include "struct.h"
 
 static int *glob_var;
+static List *lista;
 
 int main(void)
 {
-    List *lista = listInit();
+    lista = listInit();
 
     Node* nodo = nodeInit(1);
     addNode(lista, nodo);
@@ -27,17 +28,21 @@ int main(void)
     
     nodo = getNode(lista, 3);
 
-    printf("\nNodo encontrado: %d", nodo -> pid);
+    printf("\nNodo encontrado: %d  ; PID = %d", nodo -> pid, getpid());
     
     int _pid = fork();
     if (_pid > 0) {
-        Node *nodo_ = getNode(lista, 4);
-        printf("\nEn el padre %d)", nodo_ -> pid);
+        Node *nodo_2 = nodeInit(5);
+        addNode(lista, nodo_2);
+        printf("\nEn el padre ");
     }
-    /*if (_pid == 0) {
-        Node *nodo_ = getNode(lista, 4);
-        printf("\nEn el hijo (%d)", nodo_ -> pid);
-    }*/
+    if (_pid == 0) {
+        nodo = getNode(lista, 5);
+        nodo -> pid = 99;
+        printf("\nEn el hijo PID = %d", getpid());
+    }
+
+    printf("\n!!! Nodo %d", nodo -> pid);
 
     return 0;
 }
