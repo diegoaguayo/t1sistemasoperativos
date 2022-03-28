@@ -16,7 +16,7 @@ Node* nodeInit()
 {
   Node* Nodo = mmap(NULL, sizeof(Node), PROT_READ | PROT_WRITE, 
                     MAP_SHARED | MAP_ANONYMOUS, -1, 0);
-  //Nodo -> pid = pid;
+  Nodo -> estado = 0;
 
   //callloc rellena con 0 el resto de las variables
 

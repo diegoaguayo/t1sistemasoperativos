@@ -9,9 +9,7 @@ struct linked_list_node
 {
   int pid;
   int estado;
-  float tiempoInicial;
-  float tiempoFinal;
-  float tiempoEjecucion;
+  double tiempoEjecucion;
   char ejecutable[1000] ;
 
   Node* prev;
