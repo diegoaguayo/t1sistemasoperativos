@@ -58,6 +58,7 @@ int main(int argc, char const *argv[])
       if (result == 0){
         printf("%s", "\n Hello World!. \n");
         printf("> ");
+        free_user_input(input);
         return 0;
       }
     }
