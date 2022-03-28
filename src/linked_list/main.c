@@ -6,6 +6,8 @@
 #include <unistd.h>
 #include "struct.h"
 
+static int *glob_var;
+
 int main(void)
 {
     List *lista = listInit();
@@ -17,22 +19,24 @@ int main(void)
     addNode(lista, nodo);
 
     nodo = nodeInit(3);
+    nodo -> tiempoInicial = 144.4;
     addNode(lista, nodo);
 
+    nodo = nodeInit(4);
+    addNode(lista, nodo);
+    
     nodo = getNode(lista, 3);
 
     printf("\nNodo encontrado: %d", nodo -> pid);
     
-    /*int _pid = fork();
+    int _pid = fork();
     if (_pid > 0) {
-        printf("\nEn el padre");
-        //nodo = nodeInit(_pid);
-        //addNode(lista, nodo);
+        Node *nodo_ = getNode(lista, 4);
+        printf("\nEn el padre %d)", nodo_ -> pid);
     }
-    if (_pid == 0) {
-        printf("\nEn el hijo");
-        //nodo = getNode(lista, 3);
-        //printf("\nNodo encontrado en hijo: %d", nodo -> pid);
+    /*if (_pid == 0) {
+        Node *nodo_ = getNode(lista, 4);
+        printf("\nEn el hijo (%d)", nodo_ -> pid);
     }*/
 
     return 0;

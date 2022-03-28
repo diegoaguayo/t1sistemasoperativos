@@ -4,7 +4,8 @@
 
 List* listInit()
 {
-  List* Lista = malloc(sizeof(List));
+  List* Lista = mmap(NULL, sizeof(List), PROT_READ | PROT_WRITE, 
+                    MAP_SHARED | MAP_ANONYMOUS, -1, 0);
   Lista -> head = NULL;
   Lista -> tail = NULL;
 
