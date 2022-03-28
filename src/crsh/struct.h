@@ -8,7 +8,7 @@ typedef struct linked_list_node Node;
 struct linked_list_node
 {
   int pid;
-  int estado;
+  int estado;   // 0 ->> proceso ejecutandose // 1 -> proceso ejecutado
   double tiempoEjecucion;
   char ejecutable[1000];
 

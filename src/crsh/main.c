@@ -224,13 +224,31 @@ int main(int argc, char const *argv[])
 
         if (lista -> head) {
           for(Node* _nodo = lista ->head; _nodo -> next; _nodo = _nodo -> next){
-              printf("\n PID nodo: (%d) | Ejecutable: (%s) | Tiempo ejecución: (%f) | Estado: (%d)", _nodo -> pid, _nodo -> ejecutable, _nodo -> tiempoEjecucion, _nodo -> estado);
+              char _estado[15];
+              char *terminado = "Terminado";
+              char *ejecutandose = "Ejecutandose";
+              if (_nodo -> estado) {
+                strcpy( _estado, terminado);
+              } else {
+                strcpy( _estado, ejecutandose);
+              }
+              
+              printf("\n PID nodo: (%d) | Ejecutable: (%s) | Tiempo ejecución: (%f) | Estado: (%s)", _nodo -> pid, _nodo -> ejecutable, _nodo -> tiempoEjecucion, _estado);
           }
         }
         
         if (lista -> tail) {
           Node* _nodo = lista -> tail;
-          printf("\n PID nodo: (%d) | Ejecutable: (%s) | Tiempo ejecución: (%f) | Estado: (%d)", _nodo -> pid, _nodo -> ejecutable, _nodo -> tiempoEjecucion, _nodo -> estado);
+
+          char _estado[15];
+          char *terminado = "Terminado";
+          char *ejecutandose = "Ejecutandose";
+          if (_nodo -> estado) {
+            strcpy( _estado, terminado);
+          } else {
+            strcpy( _estado, ejecutandose);
+          }
+          printf("\n PID nodo: (%d) | Ejecutable: (%s) | Tiempo ejecución: (%f) | Estado: (%s)", _nodo -> pid, _nodo -> ejecutable, _nodo -> tiempoEjecucion, _estado);
           printf("\n> ");
         }
         
