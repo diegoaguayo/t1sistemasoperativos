@@ -46,10 +46,15 @@ Node* getNode(List* list, int pid){
 }
 
 void eraseTail(List* list){
-  Node* cola = list -> tail;
-  Node* subcola = cola -> prev;
+  if (list -> head == list -> tail){
+    list -> head = NULL;
+    list -> tail = NULL;
+  }
+  else {
+    Node* cola = list -> tail;
+    Node* subcola = cola -> prev;
 
-  list -> tail = subcola;
-  //free(&cola);
-
+    list -> tail = subcola;
+    list -> tail -> next = NULL;
+  }
 }

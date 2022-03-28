@@ -10,7 +10,7 @@ struct linked_list_node
   int pid;
   int estado;
   double tiempoEjecucion;
-  char ejecutable[1000] ;
+  char ejecutable[1000];
 
   Node* prev;
   Node* next;
